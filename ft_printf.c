@@ -12,6 +12,7 @@
 
 #include <stdarg.h>
 #include "../libft/libft.h"
+#include <stdio.h>
 
 int	ft_printf(const char *s, ...)
 {
@@ -20,12 +21,16 @@ int	ft_printf(const char *s, ...)
 
 	i = 0;
 	va_start(varg, s);
-	if (varg && *s)
+	if (*s)
 	{
 		while (s[i])
 		{
-			if (ft_strchr(s + i, '%') && ft_strchr(s + i + 1, 's'))
+			if (s[i] == '%' && s[i + 1] == 's')
+			{
 				ft_putstr_fd(va_arg(varg, char *), 1);
+				i += 2;
+			}
+			//printf("bateu");
 			ft_putchar_fd(s[i], 1);
 			i++;
 		}
@@ -40,6 +45,7 @@ int	main(int ac, char **av)
 {
 	(void)ac;
 	(void)av;
-	ft_printf("isto vai ter uma string %s <- aqui\n", "\"ola eu sou uma string!\"");
+	char *str = "\"ola eu sou uma string!\"";
+	ft_printf("isto vai ter uma string -> %s <- aqui\n", str);
 	return (0);
 }
