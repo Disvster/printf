@@ -12,8 +12,14 @@ under all conversions.
 Variadic functions are functions that can take a variable number of arguments.
 This feature is useful when we don't know the number of arguments our function will take, like the printf() function.
 
-prototype: `int    ft_printf(const char *, ...);`
-when called: `ft_printf("here is a string -> \"%s\"\nthis is it's length -> %u\n", (char *)s, (size_t)ft_strlen(s));`
+prototype:
+```
+int    ft_printf(const char *, ...);
+```
+when called:
+```
+ft_printf("here is a string -> \"%s\"\nthis is it's length -> %u\n", (char *)s, (size_t)ft_strlen(s));
+```
 output:
 ```
 here is a string -> "hi i'm a string!"
