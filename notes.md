@@ -91,3 +91,6 @@ void    va_end(va_list list);
 va_end (vargs);
 ```
 va_end will free the allocated memory;
+
+---
+this is kinda like the `open`, `read` and `close` functions but to variable arguments instead of file descriptors.
