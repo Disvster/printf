@@ -13,21 +13,7 @@
 #include <stdarg.h>
 #include "../libft/libft.h"
 #include <stdio.h>
-char	*ft_strchr(const char *s, int c)
-{
-	size_t	i;
 
-	i = 0;
-	while (s[i] != (char)c)
-	{
-		if (s[i] == '\0')
-			break ;
-		i++;
-	}
-	if (s[i] == (char)c)
-		return ((char *)s + i);
-	return ((char *)s);
-}
 
 void	ft_percent_scanner(const char *s, va_list valet)
 {
@@ -37,14 +23,18 @@ void	ft_percent_scanner(const char *s, va_list valet)
 	while (s[i]) 
 	{
 		if (s[i] == 'c')
-			ft_putchar_fd(va_arg(valet, char), 1);
+			ft_putchar_fd(va_arg(valet, int), 1);
 		else if (s[i] == 'i')
 			ft_putnbr_fd(va_arg(valet, int), 1);
-		i++
+		i++;
 
 	}
 }
 
+ 
+//NOTE: printf format
+//      %[flags][width][.precision][lenght]specifier
+// i.e.:%#-10
 int	ft_printf(const char *s, ...)
 {
 	va_list	valet;
@@ -55,7 +45,7 @@ int	ft_printf(const char *s, ...)
 	while (s[i])
 	{
 		 if (s[i] == '%')
-			ft_percent_scanner(&s[i]);
+			ft_percent_scanner(&s[i], valet);
 	}
 	va_end(valet);
 	return (0);

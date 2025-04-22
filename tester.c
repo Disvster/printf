@@ -12,12 +12,26 @@
 
 #include <stdio.h>
 
+//NOTE: printf format
+//      %[flags][width][.precision][lenght]specifier
+
 int	main()
 {
-	printf("Left-justified: %-10d\n", 99);
-	printf("Forced sign: %+d\n", 99);
-	printf("Forced sign: %d\n\n", 99);
-	printf("name %s, age %i, time %i%.2f\n", "Dino", 15, 0, 4.20);
+	int	i = 42;
+	printf("|||%d|||\n", i);
+	printf("|||%10d|||\n", i);
+	printf("|||%-10d|||\n", i);
+	printf("|||% d|||\n", i);
+	printf("|||%+d|||\n", i);
+	printf("|||%-10.3s|||\n", "abcde");
+	printf("|||%-10.9d|||\n", i);
+	printf("|||%010d|||\n", i);
+	printf("|||%p|||\n", &i);
+	printf("|||%#x|||\n", -1);
+//	printf("Left-justified: %-10d\n", 99);
+//	printf("Forced sign: %+d\n", 99);
+//	printf("Forced sign: %d\n\n", 99);
+//	printf("name %s, age %i, time %i%.2f\n", "Dino", 15, 0, 4.20);
 	/*
 	printf("Width flag %%[n]d adds spaces (n - len_nbr) to the left\n");
 	printf("if (n - len_nbr) <= 0, adds no spaces\n\n");
