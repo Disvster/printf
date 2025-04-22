@@ -6,21 +6,48 @@
 /*   By: manmaria <manmaria@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 13:09:24 by manmaria          #+#    #+#             */
-/*   Updated: 2025/04/21 18:30:32 by manmaria         ###   ########.fr       */
+/*   Updated: 2025/04/21 23:38:54 by manmaria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "../libft/libft.h"
 #include <stdio.h>
+char	*ft_strchr(const char *s, int c)
+{
+	size_t	i;
 
+	i = 0;
+	while (s[i] != (char)c)
+	{
+		if (s[i] == '\0')
+			break ;
+		i++;
+	}
+	if (s[i] == (char)c)
+		return ((char *)s + i);
+	return (NULL);
+}
+
+void	ft_percent_scanner(const char *s, char *)
+{
+	
+}
 int	ft_printf(const char *s, ...)
 {
 	va_list	varg;
 	int		i;
 
-	i = 0;
 	va_start(varg, s);
+	i = 0;
+	while (s[i])
+	{
+		if (a1
+	}
+	va_end(varg);
+	return (0);
+}
+/*
 	if (*s)
 	{
 		while (s[i])
@@ -30,7 +57,6 @@ int	ft_printf(const char *s, ...)
 				ft_putstr_fd(va_arg(varg, char *), 1);
 				i += 2;
 			}
-			//printf("bateu");
 			ft_putchar_fd(s[i], 1);
 			i++;
 		}
@@ -38,9 +64,7 @@ int	ft_printf(const char *s, ...)
 	else if (*s)
 		ft_putstr_fd((char *)s, 1);
 	va_end(varg);
-	return (0);
-}
-
+*/
 int	main(int ac, char **av)
 {
 	(void)ac;
