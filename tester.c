@@ -13,21 +13,26 @@
 #include <stdio.h>
 
 //NOTE: printf format
-//      %[flags][width][.precision][lenght]specifier
+//  %[flags][width][.precision][lenght]specifier
 
 int	main()
 {
 	int	i = 42;
-	printf("|||%d|||\n", i);
+	/*printf("|||%d|||\n", i);
 	printf("|||%10d|||\n", i);
-	printf("|||%-10d|||\n", i);
-	printf("|||% d|||\n", i);
-	printf("|||%+d|||\n", i);
-	printf("|||%-10.3s|||\n", "abcde");
-	printf("|||%-10.9d|||\n", i);
-	printf("|||%010d|||\n", i);
+	printf("|||%10d|||\n", i);*/
+	printf("|||%+i|||\n", -i);
+	printf("|||%0+10d|||\n", i);
 	printf("|||%p|||\n", &i);
-	printf("|||%#x|||\n", -1);
+	printf("|||%s|||\n", "abcde");
+	printf("|||%.10s|||\n\n", "abcde");
+
+	printf("\n\n|||%010d|||\n", i); // fills n_width with 0's
+	printf("|||%10.4d|||\n", i); // preappends (.n - nbr_len) times 0's;
+	printf("|||%.4i|||\n\n", -i); //ignores 0 flag, prio is precision field
+
+	printf("|||%25p|||\n", &i);
+	printf("|||%#x|||\n", 42);
 //	printf("Left-justified: %-10d\n", 99);
 //	printf("Forced sign: %+d\n", 99);
 //	printf("Forced sign: %d\n\n", 99);

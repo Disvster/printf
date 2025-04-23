@@ -56,7 +56,8 @@ ft_printf("My name is %s and I'm %i years old\n", "Dino", 5);
 2. **Initialize the Argument List - va_start() function macro**
 this macro initializes the **va_list** variable to retrieve the arguments specified in the variable arguments section.
 ```
-void    va_start(list, fixed_arg);
+void    va_start(vargs, fixed_arg);
+vargs = (void*) &fixed_arg + sizeof(fixed_arg);
 ```
 **list** is the variable (we declared above called vargs) that will hold the V.A. table;
 **fixed_arg** is the last *fixed* argument before the V.A.s, in our case the `const char *`;
@@ -66,7 +67,8 @@ This macro returns the next argument from the list.
 It must be used repeatedly to access all arguments.
 Each time `va_arg` is called, you move to the next argument. 
 ```
-type    va_arg(list, type);
+type    va_arg(vargs, type);
+type a = *((type *) vargs); vargs += sizeof(type);
 ```
 va_arg will take as argument:
 - **list** - the list of dynamic arguments we had defined (`va_list vargs`)
@@ -99,4 +101,34 @@ va_end (vargs);
 va_end will free the allocated memory;
 
 ---
+
 this is kinda like the `open`, `read` and `close` functions but to variable arguments instead of file descriptors.
+
+---
+## Printf Flags Behaviour
+
+- '%nX' -> n is a width (as in spaces) for variable to be printed into, i.e.: for n = 10
+```
+printf("||%10s||\n", "oi");
+...
+$> ./a.out
+||        oi||
+$>
+```
+- '-' -> left align indentation (default is right); can paired with the flag above and **it has to be before the given width (n)**
+```
+printf("%-10X);
+```
+- '0' -> fills/preappends width with 0's; doesn't work with '-' flag and 'p' (void* aka print adress) specifier
+- '.' -> precision field e.g. preappends 0's:
+    - if we are trying to write a number (doesnt matter which base) -> (.n - len_nbr) times 0's; if res <= 0 then no 0s are written
+    - if we are trying to write a string then -> (ft_strnlen(str, .n)) times 0's; if strlen >= .n then str is written 
+- '#' -> format for hexadecimal (%x -> 0x[nbr]) or octal (%o -> 0[nbr]) base
+- ' ' -> preappends a space character before number:
+    - only works with the '%i' and '%d' specifiers and 
+    - only positive values (with negative values it compiles but is ignored);
+    - when paired with other specifiers (x,X,o,c,s,u) compiler reports undefined behaviour;
+    - if it works (has prio) or not (program compiles but no space is shown) is dependant on where ' ' is placed;
+    - is ignored (compiler warning) when '+' flag is present
+- '+' -> preappends a plus sign for positive numbers
+    - doesn't work with
