@@ -131,4 +131,8 @@ printf("%-10X);
     - if it works (has prio) or not (program compiles but no space is shown) is dependant on where ' ' is placed;
     - is ignored (compiler warning) when '+' flag is present
 - '+' -> preappends a plus sign for positive numbers
-    - doesn't work with
+    - only works with the '%i' and '%d' specifiers; 
+    - gets ignored (compiles, writes nothing) with negative input;
+
+---
+TODO: document flag hierarchy (see to-do file)

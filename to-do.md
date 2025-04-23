@@ -1,5 +1,13 @@
 # To Do list
 
+`23/04`
+
+- document flag hierarchy and specify behaviours and synergies;
+- create struct with flags stored maybe?
+- see git group project;
+
+---
+
 Understand and document printf's behaviour. Mainly how it handles wrong input and how flags work.
 
 create a function that parses(?) through the string as soon as a '%' sign is found and:
