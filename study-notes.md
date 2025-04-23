@@ -107,7 +107,7 @@ this is kinda like the `open`, `read` and `close` functions but to variable argu
 ---
 ## Printf Flags Behaviour
 
-- '%nX' -> n is a width (as in spaces) for variable to be printed into, i.e.: for n = 10
+- '%n[spec]' -> n is a width (as in spaces) for variable to be printed into, i.e.: for n = 10
 ```
 printf("||%10s||\n", "oi");
 ...
@@ -117,10 +117,17 @@ $>
 ```
 - '-' -> left align indentation (default is right); can paired with the flag above and **it has to be before the given width (n)**
 ```
-printf("%-10X);
+printf("||%-10s||\n", "oi");
+...
+$>./a.out
+||oi        ||
+$>
 ```
-- '0' -> fills/preappends width with 0's; doesn't work with '-' flag and 'p' (void* aka print adress) specifier
-- '.' -> precision field e.g. preappends 0's:
+- '0' -> fills/preappends width with 0's
+    - doesn't work with '-' flag and 'p' (void* aka print adress) specifier;
+    - check other specs it doesnt work with (c,s,x,...);
+- '.' -> precision field 
+    - preappends 0's for numbers;
     - if we are trying to write a number (doesnt matter which base) -> (.n - len_nbr) times 0's; if res <= 0 then no 0s are written
     - if we are trying to write a string then -> (ft_strnlen(str, .n)) times 0's; if strlen >= .n then str is written 
 - '#' -> format for hexadecimal (%x -> 0x[nbr]) or octal (%o -> 0[nbr]) base
