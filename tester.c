@@ -11,17 +11,19 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <limits.h>
 
 //NOTE: printf format
 //  %[flags][width][.precision][lenght]specifier
 
 int	main()
 {
-	int	i = 42;
+	unsigned long	k = ULONG_MAX;
+	int	i = INT_MAX;
 	/*printf("|||%d|||\n", i);
 	printf("|||%10d|||\n", i);
 	printf("|||%10d|||\n", i);*/
-	printf("|||%+i|||\n", -i);
+	printf("|||%lu|||\n", k);
 	printf("|||%0+10d|||\n", i);
 	printf("|||%p|||\n", &i);
 	printf("|||%s|||\n", "abcde");
