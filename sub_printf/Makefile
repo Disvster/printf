@@ -1,0 +1,29 @@
+SRCS	= ft_itoa_base.c ft_see_format.c ft_printf_utils.c ft_printf.c ft_putstr.c ft_flags.c ft_indent.c ft_itoa.c 
+OBJS	= ${SRCS:.c=.o}
+NAME	= libftprintf.a
+ARRCS	= ar rcs
+CC		= cc
+RM		= rm -f
+CFLAGS	= -Wextra -Werror -Wall -g
+
+.c.o:
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+
+${NAME}: ${OBJS}
+	${ARRCS} ${NAME} ${OBJS}
+
+all: ${NAME}
+
+bonus: all
+
+clean:
+	${RM} ${OBJS}
+
+fclean: clean
+	${RM} ${NAME}
+
+re: fclean all
+
+d: all clean
+
+.PHONY: all bonus clean fclean reb d
