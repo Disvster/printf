@@ -12,27 +12,28 @@
 
 #include "ft_printf.h"
 
-char	*ft_substr(char *s, unsigned int start, size_t len)
+char	*ft_substrmod(char **s, unsigned int start, size_t len)
 {
 	char	*sub;
 	size_t	i;
 
 	if (!s)
 		return (NULL);
-	if (start > ft_strlen(s))
+	if (start > ft_strlen(*s))
 		return (ft_strdup(""));
-	if (len > ft_strlen(s + start))
-		len = ft_strlen(s + start);
+	if (len > ft_strlen(*s + start))
+		len = ft_strlen(*s + start);
 	sub = (char *)malloc(sizeof(char) * (len + 1));
 	if (!sub)
 		return (NULL);
 	i = 0;
 	while (i < len)
 	{
-		sub[i] = s[i + start];
+		sub[i] = (*s)[i + start];
 		i++;
 	}
 	sub[i] = '\0';
+	*s += ft_strlen(sub);
 	return (sub);
 }
 
@@ -51,7 +52,10 @@ int	ft_printf(const char *str, ...)
 	{
 		while (str[i] != '%' && str[i] != '\0')
 			i++;
-		//print str + flag_skip, desde 0 ate i 
+		char *tmp = ft_substrmod((char **)&str, 0, i);
+		count += ft_putstr(tmp);
+		free(tmp);
+		i = 0;
 		if (str[i] == '%')
 		{
 			char spec = ft_strchr(str + ++i);
@@ -60,7 +64,7 @@ int	ft_printf(const char *str, ...)
 			ret = ft_flags(str + i, ret, &flag_skip, spec);
 			i += flag_skip;
 			count += ft_putstr(ret);
-			i++;
+			str += i + 1;
 			free(ret);
 		}
 	}
