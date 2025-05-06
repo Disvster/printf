@@ -27,7 +27,7 @@ char	*ft_substrmod(char **s, unsigned int start, size_t len)
 	if (!sub)
 		return (NULL);
 	i = 0;
-	while (i < len)
+	while (i < len && (*s)[i] != '%')
 	{
 		sub[i] = (*s)[i + start];
 		i++;
@@ -62,9 +62,9 @@ int	ft_printf(const char *str, ...)
 			ret = ft_see_format(&spec, var_args);
 			int flag_skip = 0;
 			ret = ft_flags(str + i, ret, &flag_skip, spec);
-			i += flag_skip;
+			i += flag_skip + 1;
 			count += ft_putstr(ret);
-			str += i + 1;
+			str += i;
 			free(ret);
 		}
 	}
