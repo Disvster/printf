@@ -28,12 +28,12 @@
    - need to make it work for hash with and without '0's simmultansly;
 - [x] norm correct everything, mostly functions bigger than 25 lines;
 
-~~- [ ] use unsigned int for all the "int values", only use long for the pointer adresses.~~
+~~- use unsigned int for all the "int values", only use long for the pointer adresses.~~
 
 ### 5/05
 
-- [ ] paco reports conditional jump when specifier refers to a number
-- [ ] NULL values print "(null)", but some flags dont work like
+- [x] paco reports conditional jump when specifier refers to a number
+- [x] NULL values print "(null)", but some flags dont work like
    - `char *s = NULL; ft_printf("%.5s", s)` should print nothing, ours is printing `$>(null`
 - [x] change struct boolean types to char to minimise memory usage
 
@@ -41,8 +41,10 @@
 
 **It's almost done!! yay us!!!11!1!!1**
 
-- [ ] only thing missing is the things left to-do from yesterday
+- [x] only thing missing is the things left to-do from yesterday
    - need to detect null values for the va_arg variable and skip the print
    - with this we could avoid both errors above w/o having to hard code edge cases
 - [ ] when everything is done try to implement ft_sub_printf
-- [ ] change headers/var names, make each project unique
+- [x] change headers/var names, make each project unique
+
+- [x] change ft_strchr name for no conflicts

@@ -6,7 +6,7 @@
 /*   By: manmaria <manmaria@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:10:26 by manmaria          #+#    #+#             */
-/*   Updated: 2025/05/06 21:43:59 by manmaria         ###   ########.fr       */
+/*   Updated: 2025/05/13 02:42:29 by manmaria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,22 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_strrchr_b(const char *s, int c)
 {
 	size_t	len;
 
+	if (!s)
+		return (0);
 	len = ft_strlen(s);
 	while (1)
 	{
 		if (s[len] == (char)c)
-			return ((char *)s + len);
+			return (1);
 		if (len == 0)
 			break ;
 		len--;
 	}
-	return (NULL);
+	return (0);
 }
 
 void	ft_bzero(void *s, size_t n)
@@ -70,6 +72,12 @@ char	*ft_dupchar(int n)
 {
 	char	*dup;
 
+	if (n == 0)
+	{
+		dup = malloc(sizeof(char));
+		dup[0] = 0;
+		return (dup);
+	}
 	dup = malloc(sizeof(char) * 2);
 	if (!dup)
 		return (NULL);

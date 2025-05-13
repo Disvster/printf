@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_itoa_pt.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: manmaria <manmaria@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 15:39:48 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/04/29 20:04:19 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/05/13 02:42:13 by manmaria          #+#    #+#             */
+/*   Updated: 2025/05/13 02:42:14 by manmaria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ static size_t	lengths(unsigned long n, int base_len)
 	}
 	return (len);
 }
-	/*if (n < 0)
-	{
-		n = -n;
-		len++;
-	}*/
 
 static char	*putnbr_str(unsigned long n, char *str, char *base, int base_len)
 {
@@ -50,14 +45,8 @@ static char	*putnbr_str(unsigned long n, char *str, char *base, int base_len)
 	str[i] = base[n];
 	return (str);
 }
-/*if (n < 0)
-	{
-		n = -n;
-		str[i] = '-';
-		i++;
-	}*/
 
-char	*ft_itoa_base(unsigned long n, char *base)
+char	*ft_itoa_pt(unsigned long n, char *base)
 {
 	char	*itoa;
 	int		base_len;
@@ -69,13 +58,3 @@ char	*ft_itoa_base(unsigned long n, char *base)
 	putnbr_str(n, itoa, base, base_len);
 	return (itoa);
 }
-/*#include <stdio.h>
-int	main(void)
-{
-		char	*s;
-
-		s = ft_itoa_base(-42, "0123456789abcdef");
-		printf("%s", s);
-		free(s);
-		return 0;
-}*/

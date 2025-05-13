@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_see_format.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: manmaria <manmaria@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/23 11:53:50 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/05/06 21:47:04 by manmaria         ###   ########.fr       */
+/*   Created: 2025/05/13 02:42:50 by manmaria          #+#    #+#             */
+/*   Updated: 2025/05/13 02:42:52 by manmaria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,21 @@ char	*ft_see_format(const char *s, va_list varg)
 		return (return_val = ft_strdup(va_arg(varg, char *)));
 	else if (*s == 'i' || *s == 'd')
 		return (return_val = ft_itoa(va_arg(varg, int)));
-	else if (*s == 'u')
-		return (return_val = ft_itoa_base(va_arg(varg, unsigned long), base));
-	else if (*s == 'x')
-		return (return_val = ft_itoa_base(va_arg(varg, unsigned long), base));
-	else if (*s == 'X')
-		return (return_val = ft_itoa_base(va_arg(varg, unsigned long), base));
+	else if (*s == 'x' || *s == 'X' || *s == 'u')
+		return (return_val = ft_itoa_base(va_arg(varg, unsigned int), base));
 	else if (*s == 'p')
-		return (return_val = ft_itoa_base(va_arg(varg, unsigned long), base));
+		return (return_val = ft_set_point(va_arg(varg, void *), base));
 	else if (*s == '%')
 		return (return_val = ft_dupchar('%'));
 	return (NULL);
+}
+
+char	*ft_set_point(void *ptr, char *base)
+{
+	unsigned long	val;
+
+	val = (unsigned long)ptr;
+	if (!ptr)
+		return (ft_strdup("(nil)"));
+	return (ft_itoa_pt(val, base));
 }
