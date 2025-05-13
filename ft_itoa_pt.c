@@ -16,8 +16,10 @@ static size_t	lengths(unsigned long n, int base_len)
 {
 	size_t		len;
 
-	len = 1;
-	while (n >= 10)
+	len = 0;
+	if (n == 0)
+		len++;
+	while (n > 0)
 	{
 		n /= base_len;
 		len++;

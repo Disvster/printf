@@ -40,7 +40,6 @@ static char	*putnbr_str(int n, char *str)
 	nb = n;
 	len = lengths(n);
 	str[len] = '\0';
-	len--;
 	if (nb < 0)
 	{
 		nb = -nb;
