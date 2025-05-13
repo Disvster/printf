@@ -79,7 +79,7 @@ int	ft_printf(const char *str, ...)
 		// save substrmod in tmp, then save ret aka set percent's ret in another temp
 		// strjoin the two of them into a new FINAL str
 		// keep doing this until we have everything in a single string, then print it
-		// in a single call to printf
+		// in a single syscall to write
 		// strjoin would be like
 		// while (s[i] && s[i] != '%')
 		//		i++;
