@@ -1,24 +1,27 @@
-#include "bonus_files/ft_printf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 #include <limits.h>
 
 int main(void)
 {
-
-	printf("ft: [%d]\n", ft_printf("ft {%s} ", "\0\0 ola nulos"));
-	printf("Og: [%d]\n", printf("Og {%s} ", "\0\0 ola nulos"));
+	
 	printf("ft: [%d]\n", ft_printf("!%1c!", (char)0));
 	printf("Og: [%d]\n", printf("!%1c!", (char)0));
-	printf("ft: [%d]\n", ft_printf("ft {%.0i} ", 0));
-	printf("Og: [%d]\n", printf("Og {%.0i} ", 0));
-	//printf("ft: [%d]\n", ft_printf("ft {%s} ", (char *)NULL));
-	//printf("Og: [%d]\n", printf("Og {%s} ", (char *)NULL));
-	printf("ft: [%d]\n", ft_printf("ft {%10.0d} ", 0));
-	printf("Og: [%d]\n", printf("Og {%10.0d} ", 0));
-	printf("ft: [%d]\n", ft_printf("ft {% -5d} %%5d ", 0));
-	printf("Og: [%d]\n", printf("Og {% -5d} %%5d ", 0));
-	printf("  ft: [%d]\n", ft_printf("ft {% -5d} %%-3d", -32));
-	printf("  Og: [%d]\n", printf("Og {% -5d} %%-3d", -32));
+
+	// printf("ft: [%d]\n", ft_printf("ft {%s} ", "\0\0 ola nulos"));
+	// printf("Og: [%d]\n", printf("Og {%s} ", "\0\0 ola nulos"));
+	// printf("ft: [%d]\n", ft_printf("!%1c!", (char)0));
+	// printf("Og: [%d]\n", printf("!%1c!", (char)0));
+	// printf("ft: [%d]\n", ft_printf("ft {%.0i} ", 0));
+	// printf("Og: [%d]\n", printf("Og {%.0i} ", 0));
+	// printf("ft: [%d]\n", ft_printf("ft {%s} ", (char *)NULL));
+	// //printf("Og: [%d]\n", printf("Og {%s} ", (char *)NULL));
+	// printf("ft: [%d]\n", ft_printf("ft {%10.0d} ", 0));
+	// printf("Og: [%d]\n", printf("Og {%10.0d} ", 0));
+	// printf("ft: [%d]\n", ft_printf("ft {% -5d} %%5d ", 0));
+	// printf("Og: [%d]\n", printf("Og {% -5d} %%5d ", 0));
+	// printf("  ft: [%d]\n", ft_printf("ft {% -5d} %%-3d", -32));
+	// printf("  Og: [%d]\n", printf("Og {% -5d} %%-3d", -32));
 
 	/*ft_printf("\n-- -[1.2.3]c '0', 0, '1' --\n");
 	printf("lenft -> %d\n", ft_printf("ft ->| %-1c {%-2c} %-3c |\n", '0', 0, '1'));

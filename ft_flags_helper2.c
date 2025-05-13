@@ -22,12 +22,14 @@ char	*ft_check_ifnull(char *ret, t_flags *fi, char **spec)
 	char		*s;
 	size_t		i;
 
+	if (fi->width == 1)
+		return (ret);
 	if (**spec != 'c' || *ret)
 		return (ret = ft_width_bigger_len(fi, ret));
 	i = 0;
 	if (!fi->minus)
 		fi->width--;
-	s = malloc(sizeof(char) * fi->width + 1);
+	s = malloc(sizeof(char) * (fi->width + 1));
 	if (!s)
 		return (NULL);
 	if (fi->minus)
@@ -85,8 +87,8 @@ char	*ft_negzeros(t_flags *fi, char *ret, size_t *len)
 	else
 		return (ft_setchar_ra(dup, ft_strlen(dup) + 1, '-'));
 	p_s = calloc(ft_strlen(tmp) + 2, sizeof(char));
-	if (!p_s || !tmp)
-		return (free(tmp), free(p_s), NULL);
+	if (!p_s)
+		return (free(p_s), NULL);
 	p_s[i++] = '-';
 	ft_strlcpy(p_s + 1, tmp, ft_strlen(tmp) + 1);
 	*len = ft_strlen(p_s);
