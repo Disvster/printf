@@ -4,51 +4,24 @@
 
 int main(void)
 {
-
-	//const char *s = NULL;
-	// 00000000000000000002
-	// 0000000000000000002
-	// "42% 32.44d42", 0)
-	//+42.54d
 	
-	printf("ft: [%d]\n", ft_printf("ft {% 4.10d} ", 0));
-	printf("Og: [%d]\n\n",  printf("Og {% 4.10d} ", 0));
-	printf("ft: [%d]\n", ft_printf("ft {% -6.10d} ", 0));
-	printf("Og: [%d]\n\n",  printf("Og {% -8.10d} ", 0));
-	printf("ft: [%d]\n", ft_printf("ft {%+6.3d} ", 10));
-	printf("Og: [%d]\n\n",  printf("Og {%+6.3d} ", 10));
-	printf("ft: [%d]\n", ft_printf("/!\\% 5d/!\\ - ", 1) - 9);
-	printf("Og: [%d]\n",    printf("/!\\% 5d/!\\ - ", 1) - 9);
-	printf("ft: [%d]\n", ft_printf("/!\\% 25.20d/!\\ - ", 0) - 9);
-	printf("Og: [%d]\n",    printf("/!\\% 25.20d/!\\ - ", 0) - 9);
-	// printf("ft: [%d]\n", ft_printf("!%c!", (char)0));
-	// printf("ft: [%d]\n", ft_printf("!%c!", (char)0));
-	printf("ft: [%d]\n", ft_printf("PP% 5.4dCC - ", 1) - 7);
-	printf("Og: [%d]\n",    printf("PP% 5.4dCC - ", 1) - 7);
-	printf("ft: [%d]\n", ft_printf("42,% 32.44d,42 - ", 1) - 9);
-	printf("Og: [%d]\n",    printf("42,% 32.44d,42 - ", 1) - 9);
-	printf("ft: [%d]\n", ft_printf("/!\\% 25.20d/!\\ - ", 1) - 9);
-	printf("Og: [%d]\n",    printf("/!\\% 25.20d/!\\ - ", 1) - 9);
-	printf("ft: [%d]\n", ft_printf("/!\\% 25.20d/!\\ - ", 0) - 9);
-	printf("Og: [%d]\n",    printf("/!\\% 25.20d/!\\ - ", 0) - 9);
-	printf("ft: [%d]\n", ft_printf("/!\\% 020d/!\\ - ", 1) - 9);
-	printf("Og: [%d]\n",    printf("/!\\% 020d/!\\ - ", 1) - 9);
+	printf("ft: [%d]\n", ft_printf("!%1c!", (char)0));
+	printf("Og: [%d]\n", printf("!%1c!", (char)0));
+
 	// printf("ft: [%d]\n", ft_printf("ft {%s} ", "\0\0 ola nulos"));
-	// printf("Og: [%d]\n",    printf("Og {%s} ", "\0\0 ola nulos"));
-	// printf("ft: [%d]\n", ft_printf("!%c!", (char)0));
-	// printf("Og: [%d]\n",    printf("!%c!", (char)0));
+	// printf("Og: [%d]\n", printf("Og {%s} ", "\0\0 ola nulos"));
+	// printf("ft: [%d]\n", ft_printf("!%1c!", (char)0));
+	// printf("Og: [%d]\n", printf("!%1c!", (char)0));
 	// printf("ft: [%d]\n", ft_printf("ft {%.0i} ", 0));
-	// printf("Og: [%d]\n",    printf("Og {%.0i} ", 0));
-	// //printf("ft: [%d]\n", ft_printf("ft {%s} ", (char *)NULL));
+	// printf("Og: [%d]\n", printf("Og {%.0i} ", 0));
+	// printf("ft: [%d]\n", ft_printf("ft {%s} ", (char *)NULL));
 	// //printf("Og: [%d]\n", printf("Og {%s} ", (char *)NULL));
-	printf("ft: [%d]\n", ft_printf("ft {%10.0d} ", 0));
-	printf("Og: [%d]\n", printf("Og {%10.0d} ", 0));
-	printf("ft: [%d]\n", ft_printf("ft {% -5d} %% -5d ", 0));
-	printf("Og: [%d]\n", printf("Og {% -5d} %% -5d ", 0));
-	printf("  ft: [%d]\n", ft_printf("ft {% -5d} ", -32));
-	printf("  Og: [%d]\n", printf("Og {% -5d} ", -32));
-	printf("  ft: [%d]\n", ft_printf("ft {% 6.6d} ", 0));
-	printf("  Og: [%d]\n",    printf("Og {% 6.6d} ", 0));
+	// printf("ft: [%d]\n", ft_printf("ft {%10.0d} ", 0));
+	// printf("Og: [%d]\n", printf("Og {%10.0d} ", 0));
+	// printf("ft: [%d]\n", ft_printf("ft {% -5d} %%5d ", 0));
+	// printf("Og: [%d]\n", printf("Og {% -5d} %%5d ", 0));
+	// printf("  ft: [%d]\n", ft_printf("ft {% -5d} %%-3d", -32));
+	// printf("  Og: [%d]\n", printf("Og {% -5d} %%-3d", -32));
 
 	/*ft_printf("\n-- -[1.2.3]c '0', 0, '1' --\n");
 	printf("lenft -> %d\n", ft_printf("ft ->| %-1c {%-2c} %-3c |\n", '0', 0, '1'));

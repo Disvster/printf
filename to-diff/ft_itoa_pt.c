@@ -21,7 +21,7 @@ static size_t	lengths(unsigned long n, int base_len)
 		len++;
 	while (n > 0)
 	{
-		n = n / base_len;
+		n /= base_len;
 		len++;
 	}
 	return (len);

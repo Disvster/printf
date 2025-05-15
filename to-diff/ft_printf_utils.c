@@ -72,6 +72,12 @@ char	*ft_dupchar(int n)
 {
 	char	*dup;
 
+	if (n == 0)
+	{
+		dup = malloc(sizeof(char));
+		dup[0] = 0;
+		return (dup);
+	}
 	dup = malloc(sizeof(char) * 2);
 	if (!dup)
 		return (NULL);

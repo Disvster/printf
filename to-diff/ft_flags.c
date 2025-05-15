@@ -61,19 +61,9 @@ char	*ft_flags(const char *s, char *ret, int *p_fs, char *spec)
 	else if (fi->plus == 1 && ft_checkspec(*spec, "di")
 		&& !ft_strrchr_b(ret, '-'))
 		ret = ft_setchar_ra(ret, ++len, '+');
-	if (fi->width > len)
-		ret = ft_check_ifnull(ret, fi, &spec);
-	len = ft_strlen(ret);
 	if (fi->space == 1 && ft_checkspec(*spec, "di") && !ft_strrchr_b(ret, '-'))
 		ret = ft_setchar_ra(ret, ++len, ' ');
+	if (fi->width > len)
+		ret = ft_check_ifnull(ret, fi, &spec);
 	return (free(fi), ret);
 }
-// this was inside the set char function above
-//
-// ft_strlen(ret)
-// 			+ (fi->width <= len) + (fi->minus)
-// 				- (fi->precision > fi->width)
-//
-// wont work for space and : 
-//		- width > precision > strlen(ret)
-//		- width < precision > len
